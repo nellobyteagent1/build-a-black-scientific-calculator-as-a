@@ -1,0 +1,220 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    max-height: 820px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+}
+
+/* Display */
+.display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 16px 8px;
+    min-height: 120px;
+    overflow: hidden;
+}
+
+.expression {
+    font-size: 1.1rem;
+    color: #888;
+    min-height: 1.4em;
+    word-break: break-all;
+    text-align: right;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    direction: rtl;
+}
+
+.result {
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    word-break: break-all;
+    text-align: right;
+    width: 100%;
+    transition: font-size 0.15s ease;
+}
+
+.result.shrink {
+    font-size: 2.2rem;
+}
+
+/* Buttons grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    transition: background 0.12s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.93);
+}
+
+/* Number buttons */
+.btn.num {
+    background: #333;
+    color: #fff;
+}
+.btn.num:hover {
+    background: #555;
+}
+.btn.num:active {
+    background: #666;
+}
+
+/* Operator buttons */
+.btn.op {
+    background: #ff9500;
+    color: #fff;
+}
+.btn.op:hover {
+    background: #ffad33;
+}
+.btn.op:active {
+    background: #cc7a00;
+}
+
+/* Function buttons */
+.btn.fn {
+    background: #1c1c1e;
+    color: #64d2ff;
+    font-size: 0.9rem;
+}
+.btn.fn:hover {
+    background: #2c2c2e;
+}
+.btn.fn:active {
+    background: #3a3a3c;
+}
+
+/* Clear / Delete */
+.btn.clear {
+    background: #a5a5a5;
+    color: #000;
+}
+.btn.clear:hover {
+    background: #c5c5c5;
+}
+.btn.clear:active {
+    background: #8a8a8a;
+}
+
+/* Equals */
+.btn.equals {
+    background: #30d158;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.btn.equals:hover {
+    background: #4de075;
+}
+.btn.equals:active {
+    background: #28a745;
+}
+
+/* Wide buttons lose aspect ratio */
+.btn[style*="span 2"] {
+    aspect-ratio: auto;
+    height: 100%;
+}
+
+/* 0 button left-align text */
+.btn[data-action="0"] {
+    justify-content: center;
+}
+
+/* sup inside button */
+.btn sup {
+    font-size: 0.65em;
+    vertical-align: super;
+}
+
+/* Responsive */
+@media (max-width: 440px) {
+    .calculator {
+        padding: 10px;
+        gap: 8px;
+    }
+    .buttons {
+        gap: 7px;
+    }
+    .result {
+        font-size: 2.6rem;
+    }
+    .btn {
+        font-size: 0.95rem;
+    }
+    .btn.fn {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .calculator {
+        max-height: 780px;
+        border-radius: 24px;
+        background: #0a0a0a;
+        box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) {
+    .display {
+        min-height: 60px;
+    }
+    .result {
+        font-size: 2rem;
+    }
+    .btn {
+        aspect-ratio: auto;
+        padding: 8px;
+    }
+}

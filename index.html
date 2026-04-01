@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="expression" id="expression"></div>
+            <div class="result" id="result">0</div>
+        </div>
+        <div class="buttons">
+            <!-- Row 1: Scientific functions -->
+            <button class="btn fn" data-action="sin">sin</button>
+            <button class="btn fn" data-action="cos">cos</button>
+            <button class="btn fn" data-action="tan">tan</button>
+            <button class="btn fn" data-action="log">log</button>
+            <button class="btn fn" data-action="ln">ln</button>
+
+            <!-- Row 2: More scientific + clear -->
+            <button class="btn fn" data-action="sqrt">&radic;</button>
+            <button class="btn fn" data-action="power">x<sup>y</sup></button>
+            <button class="btn fn" data-action="pi">&pi;</button>
+            <button class="btn fn" data-action="e">e</button>
+            <button class="btn fn" data-action="paren">(&#8239;)</button>
+
+            <!-- Row 3: Clear, delete, percent, sign, divide -->
+            <button class="btn clear" data-action="clear">AC</button>
+            <button class="btn clear" data-action="delete">DEL</button>
+            <button class="btn op" data-action="percent">%</button>
+            <button class="btn op" data-action="toggle">&plusmn;</button>
+            <button class="btn op" data-action="divide">&divide;</button>
+
+            <!-- Row 4: 7 8 9 multiply -->
+            <button class="btn num" data-action="7">7</button>
+            <button class="btn num" data-action="8">8</button>
+            <button class="btn num" data-action="9">9</button>
+            <button class="btn op" data-action="multiply" style="grid-column: span 2">&times;</button>
+
+            <!-- Row 5: 4 5 6 subtract -->
+            <button class="btn num" data-action="4">4</button>
+            <button class="btn num" data-action="5">5</button>
+            <button class="btn num" data-action="6">6</button>
+            <button class="btn op" data-action="subtract" style="grid-column: span 2">&minus;</button>
+
+            <!-- Row 6: 1 2 3 add -->
+            <button class="btn num" data-action="1">1</button>
+            <button class="btn num" data-action="2">2</button>
+            <button class="btn num" data-action="3">3</button>
+            <button class="btn op" data-action="add" style="grid-column: span 2">+</button>
+
+            <!-- Row 7: 0 decimal equals -->
+            <button class="btn num" data-action="0" style="grid-column: span 2">0</button>
+            <button class="btn num" data-action="decimal">.</button>
+            <button class="btn equals" data-action="equals" style="grid-column: span 2">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
